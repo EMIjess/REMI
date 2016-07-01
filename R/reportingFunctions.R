@@ -9,6 +9,68 @@
 #' ### Figure Functions
 . = NULL
 
+#' EMI Theme for ggplot2
+#' Creates a complete theme for report compliant ggplot
+theme_emi = function(base_size = 12, base_family = "ProximaNova-Regular") {  # per http://docs.ggplot2.org/dev/vignettes/themes.html
+   theme(
+     # Elements in this first block aren't used directly, but are inherited
+     # by others
+     line =               element_line(colour = "black", size = 0.5, linetype = 1,
+                             lineend = "butt"),
+     rect =               element_rect(fill = "white", colour = "black", size = 0.5, linetype = 1),
+     text =               element_text(family = base_family, face = "plain",
+                             colour = "black", size = base_size,
+                             hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9),
+     axis.text =          element_text(size = rel(0.8)),
+     strip.text =         element_text(size = rel(0.8)),
+     
+     axis.line =          element_blank(),  # axis are the lines and text defining the plot context
+     axis.text.x =        element_text(vjust = 1),
+     axis.text.y =        element_text(hjust = 1),
+     axis.ticks =         element_blank(),
+     axis.title.x =       element_text(),
+     axis.title.y =       element_text(angle = 90, vjust = 1),
+     axis.ticks.length =  unit(3, "lines"),
+     axis.ticks.margin =  unit(0.1, "cm"),
+     
+     legend.background =  element_rect(colour = NA), # legend is for understanding definitions of items in the plot 
+     legend.margin =      unit(0.2, "cm"),
+     legend.key =         element_blank(),
+     legend.key.size =    unit(1.2, "lines"),
+     legend.key.height =  NULL,
+     legend.key.width =   NULL,
+     legend.text =        element_text(size = rel(0.8)),
+     legend.text.align =  NULL,
+     legend.title =       element_text(hjust = 0),
+     legend.title.align = NULL,
+     legend.position =    "bottom",
+     legend.direction =   NULL,
+     legend.justification = "center",
+     legend.box =         NULL,
+ 
+     panel.background =   element_blank(), # panel is the box where the potting occurs.
+     panel.border =       element_blank(),
+     panel.grid.major =   element_line(colour = "grey90", size = 0.2),
+     panel.grid.minor =   element_line(colour = "grey98", size = 0.5),
+     panel.grid.minor.y=element_blank(), # do not plot minor y grid lines
+     panel.grid.major.x=element_blank(), # do not plot x grid lines
+     panel.margin =       unit(0.25, "lines"),
+     panel.margin.x =     NULL,
+     panel.margin.y =     NULL,
+ 
+     strip.background =   element_blank(),  # strip is the facet labels
+     strip.text.x =       element_text(),
+     strip.text.y =       element_text(angle = -90),
+ 
+     plot.background =    element_blank(),  # plot is the box around the box where the plotting occurs
+     plot.title =         element_text(size = rel(1.2)),
+     plot.margin =        unit(c(1, 1, 0.5, 0.5), "lines"),
+ 
+     complete = TRUE
+   )
+ }
+ <environment: namespace:ggplot2>
+
 #' EMI Plot
 #'
 #' Sets up a ggplot with the EMI formatting defaults - excluding colors
